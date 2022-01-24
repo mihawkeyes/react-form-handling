@@ -71,7 +71,7 @@ const SimpleInput = (props) => {
       <div className={formEmailStyle}>
         <label htmlFor="email">Your Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           value={enteredEmail}
           onChange={emailInputChangeHandler}
