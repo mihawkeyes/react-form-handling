@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 
 const SimpleInput = (props) => {
-  const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [wasNameInputTouched, setWasNameInputTouched] = useState(false);
+
   const [wasEmailInputTouched, setWasEmailInputTouched] = useState(false);
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  const enteredNameIsValid = enteredName.trim() !== "";
   const enteredEmailIsValid =
     enteredEmail.trim() !== "" && enteredEmail.match(mailformat);
-  const nameInputIsInvalid = !enteredNameIsValid && wasNameInputTouched;
+
   const emailInputIsInvalid = !enteredEmailIsValid && wasEmailInputTouched;
 
   let formIsInvalid = false;
@@ -19,9 +17,6 @@ const SimpleInput = (props) => {
     formIsInvalid = true;
   }
 
-  const nameInputChangeHandler = (event) => {
-    setEnteredName(event.target.value);
-  };
   const emailInputChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
   };
@@ -39,9 +34,6 @@ const SimpleInput = (props) => {
     setWasEmailInputTouched(false);
   };
 
-  const nameInputBlurHandler = (event) => {
-    setWasNameInputTouched(true);
-  };
   const emailInputBlurHandler = (event) => {
     setWasEmailInputTouched(true);
   };
